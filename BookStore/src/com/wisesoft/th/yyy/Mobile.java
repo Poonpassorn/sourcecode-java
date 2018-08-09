@@ -1,32 +1,48 @@
 package com.wisesoft.th.yyy;
 
-public class Mobile {
-	void call() {
-		System.out.println("Call");
-	}
+public interface Mobile {
+	void call();
 
-	void playMusic() {
-
-	}
-
+	void playMusic();
 }
 
-class Sumsung extends Mobile {
+//แบบที่ 1 interface Mobile2018 extends Mobile ** จะง่ายแต่จะผูกมัดกัน เป็น multi inheritance
+//แบบที่ 2 interface NewMobileV2 extends Mobile,Mobile2018 **ได้ type ใหม่เป็น  multi inheritance ผูกมัด 1,2
+/* แบบที่ 3 
+ * interface NewMobile {
+ * void call();
+ * void playMusic();
+ * void takePhoto();
+ * }*/ 
 
+
+interface Mobile2018 { // เพิ่มแบบนี้เพื่อลดผลกระทบ
+	void takePhoto();
 }
 
-class Iphone extends Mobile {
+interface NewMobileV2 { 
+	void call();
+	void playMusic();
+	void takePhoto();
+}
 
+class Sumsung implements Mobile {
 	@Override
-	void call() {
-		// TODO Auto-generated method stub
-		super.call();
+	public void call() {
 	}
-
 	@Override
-	void playMusic() {
-		// TODO Auto-generated method stub
-		super.playMusic();
+	public void playMusic() {
 	}
+}
 
+class Iphone implements NewMobileV2 {
+	@Override
+	public void call() {
+	}
+	@Override
+	public void playMusic() {
+	}
+	@Override
+	public void takePhoto() {
+	}
 }

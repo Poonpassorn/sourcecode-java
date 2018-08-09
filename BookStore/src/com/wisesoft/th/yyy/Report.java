@@ -2,7 +2,7 @@ package com.wisesoft.th.yyy;
 
 //Create Template.
 abstract class Report {
-	abstract void createHeader();
+	abstract void createHeader(); //รูปแบบการทำงานเหมือนกัน ด้านในต่างกัน
 	abstract void createBody();
 	abstract void createFooter();
 	void genarateReport() {
